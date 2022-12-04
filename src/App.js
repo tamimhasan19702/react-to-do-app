@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Lists from './Components/Lists';
+
 
 function App() {
+
+  const dummyData = [
+    {todo: 'Feed the Cats', status: 'pending'},
+    {todo: 'Study hard and Fast', status: 'pending'},
+    {todo: 'Watch World Cup Tonight', status: 'pending'},
+    {todo: 'Do a little bit of Coding', status: 'pending'},
+    {todo: 'Update everything on the to do list', status: 'pending'},
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello world</h1>
     </div>
   );
 }
