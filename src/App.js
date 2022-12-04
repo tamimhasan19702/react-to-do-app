@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import Lists from './Components/Lists';
 
 
@@ -12,9 +12,31 @@ function App() {
     {todo: 'Update everything on the to do list', status: 'pending'},
   ]
 
+  const [todo, setTodo] = useState([]);
+
+  useEffect(() => {
+    setTodo(dummyData);
+  }, []);
+
+  const handleRemoveItem = (index) => {
+    let currentItems = [...todo];
+    currentItems.splice(index,1);
+    console.log({index , currentItems });
+    setTodo(currentItems)
+  }
+
+  const handleUpdateItem = (index) => {
+    let currentItems = {...todo};
+    currentItems[index].status = "completed";
+    console.log({index, currentItems});
+    setTodo(currentItems);
+  }
+
   return (
     <div className="App">
-      <h1>Hello world</h1>
+      <div className="todo-wrapper">
+        <Lists data={todo} handleRemoveItem={handleRemoveItem} handleUpdateItem={handleUpdateItem}/>
+      </div>
     </div>
   );
 }
