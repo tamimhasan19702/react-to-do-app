@@ -30,15 +30,21 @@ function App() {
     currentItems[index].status = "completed";
     console.log({index, currentItems});
     setTodo(currentItems);
+  };
+
+  if(!todo.length > 0){
+    return <p>Requesting data...</p>
   }
 
   return (
-    <div className="App">
-      <div className="todo-wrapper">
-        <Lists data={todo} handleRemoveItem={handleRemoveItem} handleUpdateItem={handleUpdateItem}/>
-      </div>
-    </div>
-  );
+  todo.length > 0 && (
+    <Lists
+    data={todo}
+    handleUpdateItem={handleUpdateItem}
+    handleRemoveItem={handleRemoveItem}
+    />
+  )
+    )
 }
 
 export default App;

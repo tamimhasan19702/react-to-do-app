@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 
 const ListItem = () => {
@@ -8,14 +8,27 @@ const ListItem = () => {
             <button>Action</button>
         </li>
     )
+};
+
+
+const Lists = ({ data, handleRemoveItem, handleUpdateItem}) => {
+const [todo, setTodo] = useState([]);
+
+useEffect(() => {
+   setTodo(data);
+},[]);
+
+if(!(todo.length > 0)){
+  return <ul>Please Insert an Item</ul>
 }
 
 
-
-function Lists() {
-  return (
-    <div>Lists</div>
-  )
+return (
+  <ul>
+    {todo.map((item, index) => 
+    <ListItem index={index} handleUpdateItem={handleUpdateItem} handleRemoveItem={handleRemoveItem} todo={item}/>)}
+  </ul>
+)
 }
 
 export default Lists
