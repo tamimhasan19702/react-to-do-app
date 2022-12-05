@@ -37,13 +37,11 @@ function App() {
   }
 
   return (
-  todo.length > 0 && (
     <Lists
     data={todo}
     handleUpdateItem={handleUpdateItem}
     handleRemoveItem={handleRemoveItem}
     />
-  )
     )
 }
 

@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
 
 
-const ListItem = () => {
+const ListItem = ({todo , index, handleUpdateItem, handleRemoveItem}) => {
     return (
         <li>
-            <span>Title</span>
-            <button>Action</button>
+            <span>{todo.todo}</span>
+            <button onClick={() => handleRemoveItem(index)}>Remove</button>
         </li>
     )
 };
@@ -18,15 +18,17 @@ useEffect(() => {
    setTodo(data);
 },[]);
 
-if(!(todo.length > 0)){
-  return <ul>Please Insert an Item</ul>
-}
 
 
 return (
   <ul>
     {todo.map((item, index) => 
-    <ListItem index={index} handleUpdateItem={handleUpdateItem} handleRemoveItem={handleRemoveItem} todo={item}/>)}
+    <ListItem 
+    key={item.id}
+    index={index} 
+    handleUpdateItem={handleUpdateItem} 
+    handleRemoveItem={handleRemoveItem} 
+    todo={item}/>)}
   </ul>
 )
 }
