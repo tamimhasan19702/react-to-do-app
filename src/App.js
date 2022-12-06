@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect } from 'react';
 import Lists from './Components/Lists';
 import Textfield from './Components/Textfield';
 
@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     setTodo(dummyData);
-  }, []);
+  },  []);
 
   const handleRemoveItem = (index) => {
     let currentItems = [...todo];
@@ -33,7 +33,7 @@ function App() {
     setTodo(currentItems);
   };
 
-  const addnewItem = (obj) => {
+  const addNewItem = (obj) => {
     let newItems = [...todo]
     newItems.push(obj);
     console.log({obj, newItems})
@@ -52,12 +52,11 @@ function App() {
 
     <div className="Adp">
       <div className="todo-wrapper">
-        <Textfield addnewItem={addnewItem}/>
+        <Textfield addNewItem={addNewItem}/>
       <Lists
       data={todo}
       handleUpdateItem={handleUpdateItem}
       handleRemoveItem={handleRemoveItem}
-      
       />
       </div>
       

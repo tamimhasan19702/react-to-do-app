@@ -1,23 +1,24 @@
 import React, { useState } from 'react'
 
-function Textfield(addnewItem) {
+function Textfield(addNewItem) {
 
    const [textVal, setTextVal] = useState('');
 
    const handleChange = (e) => {
-    e.preventDefault();
-
-    setTextVal((prevText) => e.target.val);
+    setTextVal((prevText) => e.target.value);
    }
 
    const onSubmit = (e) => {
     e.preventDefault();
-    addnewItem({ todo: textVal, status: 'pending'});
+    addNewItem({ todo: textVal, status: 'pending'});
+    setTextVal('');
     console.log('added new val')
    }
 
   return (
-    <input type="text" onChange={e => handleChange(e)} onSubmit={onSubmit}/>
+    <form onSubmit={onSubmit}>
+      <input type="text" onChange={e => handleChange(e)} />
+    </form>
   )
 }
 
