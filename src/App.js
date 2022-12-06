@@ -32,6 +32,10 @@ function App() {
     setTodo(currentItems);
   };
 
+  useEffect(() => {
+    console.log('updated from app.js')
+  },[todo]);
+
   if(!todo.length > 0){
     return <p>Requesting data...</p>
   }

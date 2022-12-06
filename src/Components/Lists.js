@@ -16,7 +16,7 @@ const [todo, setTodo] = useState([]);
 
 useEffect(() => {
    setTodo(data);
-},[]);
+},[data]);
 
 
 
