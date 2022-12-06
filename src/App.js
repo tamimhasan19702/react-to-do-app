@@ -52,11 +52,12 @@ function App() {
 
     <div className="Adp">
       <div className="todo-wrapper">
-        <Textfield/>
+        <Textfield addnewItem={addnewItem}/>
       <Lists
       data={todo}
       handleUpdateItem={handleUpdateItem}
       handleRemoveItem={handleRemoveItem}
+      
       />
       </div>
       

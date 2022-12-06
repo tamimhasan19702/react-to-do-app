@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Textfield() {
+function Textfield(addnewItem) {
 
    const [textVal, setTextVal] = useState('');
 
@@ -11,6 +11,8 @@ function Textfield() {
    }
 
    const onSubmit = (e) => {
+    e.preventDefault();
+    addnewItem({ todo: textVal, status: 'pending'});
     console.log('added new val')
    }
 
