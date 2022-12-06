@@ -10,8 +10,12 @@ function Textfield() {
     setTextVal((prevText) => e.target.val);
    }
 
+   const onSubmit = (e) => {
+    console.log('added new val')
+   }
+
   return (
-    <input type="text" onChange={e => handleChange(e)} />
+    <input type="text" onChange={e => handleChange(e)} onSubmit={onSubmit}/>
   )
 }
 
