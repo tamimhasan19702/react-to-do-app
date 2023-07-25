@@ -4,6 +4,7 @@ import React from "react";
 import './Sass/_app.scss'
 import { useSelector,useDispatch } from "react-redux";
 import { decrement, decrementByValue, increment, incrementByValue, reset } from "./features/counter/counterSlice";
+import PostView from "./features/post/PostView";
 
 function App() {
    
@@ -38,6 +39,7 @@ function App() {
     <button onClick={handleDecrement}>Decrement</button>
     <button onClick={handleDecrementByVal}>Decrement by value</button>
     <button onClick={Reset}>Reset</button>
+    <PostView/>
   </div>)
 }
 
