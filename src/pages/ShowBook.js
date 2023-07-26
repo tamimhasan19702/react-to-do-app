@@ -3,15 +3,15 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBook } from "./BookSlice";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const ShowBook = () => {
   const books = useSelector((state) => state.Books.books);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-  dispatch(deleteBook(id))
-  }
+    dispatch(deleteBook(id));
+  };
 
   return (
     <div>
@@ -31,17 +31,16 @@ const ShowBook = () => {
               const { id, title, author } = book;
               return (
                 <tr>
-                    <td>{id}</td>
-                    <td>{title}</td>
-                    <td>{author}</td>
-                    <td>
-                        <Link to="/edit-book">
-                        <button>Edit</button>
-                        </Link>
-                        <button onClick={() => handleDelete(id)}>Delete</button>
-                    </td>
+                  <td>{title}</td>
+                  <td>{author}</td>
+                  <td>
+                    <Link to="/edit-book" state={{ id, title, author }}>
+                      <button>Edit</button>
+                    </Link>
+                    <button onClick={() => handleDelete(id)}>Delete</button>
+                  </td>
                 </tr>
-              )
+              );
             })}
         </tbody>
       </table>
