@@ -23,7 +23,7 @@ const createUser = (req, res) => {
   res.status(200).json({ users });
 };
 
-//creating new user
+//updating user
 const updateUser = (req, res) => {
   const { id } = req.params;
   const { username, email } = req.body;
@@ -37,8 +37,16 @@ const updateUser = (req, res) => {
   res.status(200).json({ users });
 };
 
+//deleting user
+const deleteUser = (req, res) => {
+  const { id } = req.params;
+  const NewUsers = users.filter((user) => user.id !== id);
+  res.status(200).json({ users : NewUsers });
+};
+
 module.exports = {
   getAllUsers,
   createUser,
   updateUser,
+  deleteUser,
 };
