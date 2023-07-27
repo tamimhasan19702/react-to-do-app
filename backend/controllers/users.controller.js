@@ -18,12 +18,27 @@ const createUser = (req, res) => {
     email,
   };
 
-  users.push(newUser)
+  users.push(newUser);
 
+  res.status(200).json({ users });
+};
+
+//creating new user
+const updateUser = (req, res) => {
+  const { id } = req.params;
+  const { username, email } = req.body;
+
+  users
+    .filter((user) => user.id === id)
+    .map((updatedUser) => {
+      updatedUser.username = username;
+      updatedUser.email = email;
+    });
   res.status(200).json({ users });
 };
 
 module.exports = {
   getAllUsers,
   createUser,
+  updateUser,
 };
